@@ -1,15 +1,14 @@
-def cal(nl) :
-	m = max(nl)
-	aver = 0
-	for i in nl :
-		aver += i / m * 100
-	print(aver / len(nl))
-
+def cal(a, b) :
+	if b == 0 :
+		return a
+	return cal(b, a % b)
 
 def main() :
-	input()
 	x = list(map(int,input().split()))
-	cal(x)
+	gcd = cal(x[1],x[0])
+	lcm = int(x[0] * x[1] / gcd)
+	print(gcd)
+	print(lcm)
 
 
 main()
