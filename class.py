@@ -1,15 +1,14 @@
 def cal(nl) :
-	h = 0
-	for i in range(len(nl)) :
-		h += ( ord(nl[i]) - ord('a') + 1 )  * (31 ** i)
-	if h >= 1234567891 :
-		h %= 1234567891
-	print(h)
+	m = max(nl)
+	aver = 0
+	for i in nl :
+		aver += i / m * 100
+	print(aver / len(nl))
 
 
 def main() :
 	input()
-	x = input()
+	x = list(map(int,input().split()))
 	cal(x)
 
 
