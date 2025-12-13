@@ -1,14 +1,21 @@
-def cal(a, b) :
-	if b == 0 :
-		return a
-	return cal(b, a % b)
+def cal(f, r) :
+	l = [ ([0] * r) for _ in range(f+1) ]
+	for i in range(r) :
+		l[0][i] = i+1
+	for j in range(1, f+1) :
+		l[j][0] = l[j-1][0]
+		for k in range(r) :
+			l[j][k] = l[j][k-1] + l[j-1][k]
+	print(l[f][r-1])
+
+
 
 def main() :
-	x = list(map(int,input().split()))
-	gcd = cal(x[1],x[0])
-	lcm = int(x[0] * x[1] / gcd)
-	print(gcd)
-	print(lcm)
+	x = int(input())
+	for i in range(x) :
+		floor = int(input())
+		room = int(input())
+		cal(floor, room)
 
 
 main()
